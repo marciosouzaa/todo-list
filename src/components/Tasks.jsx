@@ -5,18 +5,19 @@ import { useState } from 'react';
 import styles from './Tasks.module.css';
 
 
-export const Tasks = ({ tasks, onDeleteTask, checkClickTask }) => {
-  const [ taskCheck, setTaskCheck] = useState(true)
+export const Tasks = ({ tasks, onDeleteTask, checkClickTask, onDeleteCount }) => {
+  const [ taskCheck, setTaskCheck] = useState([])
 
   const handleDeleteTask = () => {
     onDeleteTask(tasks)
+    onDeleteCount(taskCheck)
   }
 
 
  function handleClickTask(){
   const taskComplete = !taskCheck
 
-  checkClickTask(taskCheck)
+  checkClickTask(taskComplete)
   setTaskCheck(taskComplete)
  }
 
@@ -29,11 +30,11 @@ export const Tasks = ({ tasks, onDeleteTask, checkClickTask }) => {
       <div className={styles.task}>
       <button onClick={handleClickTask} className={styles.checkContainer}>
         {taskCheck ? <Circle /> : <CheckCircle color='var(--green-strong)' />}
-        
-      </button>
-      <p>
+      </button>      
+      {taskCheck ? <p className={styles.taskNoChecked}>{tasks}</p> : <p className={styles.taskChecked}>
         {tasks}
-      </p>
+      </p>}  
+      
 
       <button onClick={handleDeleteTask}  className={styles.deleteButton}>
         <Trash size={20} className={styles.trash}/>

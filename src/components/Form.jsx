@@ -31,16 +31,29 @@ export const Form = () => {
     })
      setTask(taskWithOutDeleteOne)
   }
+
+  const deleteCount = (id)=>{
+    
+    setTaskCount((taskCheck)=>{
+      if(!id ){      
+        return --taskCheck 
+      }else{
+        return taskCheck
+      }
+    })
+
+  }
+
   
-function taskClickCheck(){
-  setTaskCount((taskCheck)=>{
-    if(!taskCheck == true){
-      return taskCheck + 1
-    }else{
-      return taskCheck -1
-    }
-  })
-}
+  function taskClickCheck(id){
+    setTaskCount((taskCheck)=>{
+      if(!id ){      
+        return ++taskCheck 
+      }else{
+        return --taskCheck
+      }
+    })
+  }
 
   
   const TasksAmount = task.length
@@ -77,6 +90,7 @@ function taskClickCheck(){
               tasks={tasks}
               onDeleteTask={deleteTask}
               checkClickTask={taskClickCheck}
+              onDeleteCount={deleteCount}
             />
           )
         })}

@@ -14,12 +14,7 @@
 
 
 
-.task p {
-  
-  
-  color: var(--gray-100);
-  
-}
+
 
 p.textCompleted {
   color: var(--gray-300);
@@ -32,8 +27,6 @@ p.textCompleted {
   background: none;
   border: none;
 }
-
-
 
 .checkContainer svg {
   width: 100%;
@@ -55,4 +48,14 @@ p.textCompleted {
 .trash:hover {
   color: var(--Danger-);
   cursor: pointer;
+}
+.taskChecked{
+  color: var(--gray-300);
+  border-bottom: 1px solid;
+  font-size: 2.5rem;
+}
+.taskNoChecked{
+  color: var(--white);
+  font-size: 2.5rem;
+
 }
