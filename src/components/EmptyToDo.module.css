@@ -1,0 +1,27 @@
+.firstText {
+  color: var(--gray-300);
+  font-weight: 700;
+}
+
+.secondText {
+  color: var(--gray-300);
+  font-weight: 400;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
+  align-items: center;
+  justify-content: center;
+  margin-top: 4rem;
+  padding-top: 40px;
+  border-top: 2px solid var(--gray-400);
+  max-width: 835px;
+  margin: 0 auto;
+  border-radius: 8px;
+}
+
+.content img {
+  width: 5rem;
+}
